@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4086163653823608380}
   - component: {fileID: 3405966429349617686}
   - component: {fileID: 2098718239825102288}
-  - component: {fileID: 7191887499217401919}
   - component: {fileID: 400780978826536990}
-  m_Layer: 0
+  - component: {fileID: 7191887499217401919}
+  m_Layer: 6
   m_Name: Food
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,18 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &7191887499217401919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2396705164752894568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a9791b17e51254cb8190e6d1ab21d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &400780978826536990
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -118,3 +106,17 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7191887499217401919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396705164752894568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18a9791b17e51254cb8190e6d1ab21d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _particleSystem: {fileID: 8277495655749497867, guid: 81aa1677ce2957b4ca5cc27f748b297a, type: 3}
+  _timeToDie: 1

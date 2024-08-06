@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -7,25 +8,27 @@ public class Mob : MonoBehaviour
 	private Food _food;
 	private float _speed;
 
+	public Action<Mob> onEat;
+
 	public void Initialize(Food food, float speed, Vector3 position)
 	{
-		_food = food;
+		SetNewTarget(food);
 		_speed = speed;
 		transform.position = position;
 		_rb = GetComponent<Rigidbody>();
 		_rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 	}
 
-	void FixedUpdate()
+	private void FixedUpdate()
 	{
 		if (_food != null)
 		{
 			transform.LookAt(_food.transform.position);
-			_rb.velocity = transform.forward * _speed * Time.fixedDeltaTime;
+			_rb.velocity = transform.forward * _speed;
 		}
 	}
 
-	public void SetTarget(Food target)
+	public void SetNewTarget(Food target)
 	{
 		_food = target;
 	}
@@ -34,7 +37,12 @@ public class Mob : MonoBehaviour
 	{
 		if (other.transform == _food.transform)
 		{
-			Debug.Log("ASD");
+			onEat?.Invoke(this);
 		}
+	}
+
+	public void DestroyMob()
+	{
+		Destroy(this.gameObject);
 	}
 }
